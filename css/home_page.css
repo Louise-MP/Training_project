@@ -1,0 +1,227 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/*-------------------------- RESET CSS ----------------------------*/
+
+body
+{
+    /* font-family: 'Rubik', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/*-------------------------- HEADER ----------------------------*/
+
+
+header
+{
+ 
+    box-shadow: 1px 1px 10px grey;
+}
+
+/*-------------------------- MENU ----------------------------*/
+
+
+.menu 
+{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    padding-top: 30px;
+    
+}
+
+
+.logo
+{
+    margin-left: 10px;
+}
+
+.sign_out
+{
+    margin-right: 10px;
+}
+
+/*-------------------------- MAIN SECTION ----------------------------*/
+
+
+.main_section
+{
+    height: 400px;
+    background-image: url(../images/bg-03.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome
+{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding-left: 30px;
+    justify-content: center;
+    align-items: center;
+    color: floralwhite;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.welcome h1
+{
+    font-size: 60px;
+}
+
+.welcome p
+{
+    font-size: 25px;
+    line-height: 166%;
+    margin-left: 9px;
+}
+
+/*-------------------------- SECTION 2 ----------------------------*/
+
+.section2 
+{
+    display:flex ;
+    justify-content: space-around;
+    box-shadow: 1px 1px 10px grey;
+    height: 260px;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px 10px 10px 10px;
+    align-items: center;
+
+    position: relative;
+    top: -40px;
+    background-color: rgba(255,255,255,1);
+}
+
+
+.section2 h3
+{
+    color: #4846b8;
+    font-size:
+     25px;
+}
+
+
+.section2 img
+{
+    width: 100%;
+}
+
+.logo_html
+{
+    width: 10%;
+}
+
+.logo_css
+{
+    width: 10%;
+}
+
+.logo_php
+{
+    width: 15%;
+}
+
+.logo_mysql
+{
+    width: 15%;
+}
+
+/*-------------------------- FOOTER ----------------------------*/
+
+/* 
+.footer 
+{
+    width: 100%;
+    height: 180px;
+    margin-top: 50px;
+    color: black;
+}
+
+.h2_footer
+{
+    font-size: 25px;
+    text-align: center;
+    padding-top: 15px;
+}
+ */
+
+
+/*-------------------------- CONTACT SECTION ----------------------------*/
+
+/* .contact_section
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.phone_icon img
+{
+    width: 45%;
+}
+
+
+.email_icon img
+{
+    width:45% ;
+}
+
+
+.linkedin_logo img
+{
+    width: 45%;
+}
+ */
