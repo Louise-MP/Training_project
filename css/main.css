@@ -60,7 +60,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #8d8d8d;
 }
 
 /*---------------------------------------------*/
@@ -401,7 +401,7 @@ input.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #4846b8;
+  background-color: #798e9e;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
@@ -416,7 +416,7 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background-color: #333333;
+  background-color:#999999 ;
 }
 
 
