@@ -1,10 +1,83 @@
 <?php
 
-include('dbConnect.php');
+
+include('php/dbConnect.php');
+
+// Si la variable "$_Post" contient des informations alors on les traitres
+if(!empty($_POST))
+{
+	extract($_POST);
+	$valid = true;
+
+	// On se place sur le bon formulaire grâce au "name" de la balise "input"
+	if (isset($_POST['submit']))
+	{
+		$username  = htmlspecialchars($_POST['username']); // On récupère le nom
+		$email = htmlspecialchars($_POST['email']); // On récupère le mail
+		$pass = md5($_POST['pass']); // On récupère le mot de passe 
+	
+
+		// Vérification du prénom
+		if(empty($username))
+		{
+			$valid = false;
+			$er_username = ("Please enter your username");
+		}
+
+		// Vérificaton du mail
+		if(empty($email))
+		{
+			$valid = false;
+			$er_mail = "Please enter your email";
+			
+
+		// On vérifit que le mail est dans le bon format
+		}
+		elseif(!preg_match("/^[a-z0-9\-_.]+@[a-z]+\.[a-z]{2,3}$/i", $email))
+		{
+			$valid = false;
+			$er_mail = "Invalid email";
+			
+		}
+		// else
+		// {
+		// 	// On vérifie que le mail est disponible
+		// 	$req_mail = "SELECT * FROM members WHERE mail = ?";
+        //     $dbprepare=$connexion->prepare($req_mail);
+		// 	$result=$dbprepare->execute(array($email));
+							
+				
+		// 	if ($req_mail['email'] <> "")
+		// 	{
+		// 		$valid = false;
+		// 		$er_mail = "This email already exist";
+		// 	}
+		// }
+
+		// Vérification du mot de passe
+		if(empty($pass))
+		{
+			$valid = false;
+			$er_pass = "Please enter the password";
+		}
+
+		// Si toutes les conditions sont remplies alors on fait le traitement
+		if($valid)
+		{
 
 
 
+			// On insert nos données dans la table members
+			$sql = "INSERT INTO members(username,mail,password) VALUES(?, ?, ?)"; /* créer la requete */
+			$dbprepare=$connexion->prepare($sql); /* prepare la bdd a recevoir la requete */
+			$result=$dbprepare->execute([$username,$email,$pass]);
+			
+			header('Location: php/login.php');
+			exit;
+		}
+	}
 
+}
 
 ?>
 
@@ -52,6 +125,21 @@ include('dbConnect.php');
 				</div>
 
 				<form class="login100-form validate-form" method='POST'>
+
+					<?php
+
+					// S'il y a une erreur sur le nom alors on affiche
+					
+					if (isset($er_username)){
+						
+						?>
+
+	                    <div><?= $er_username ?></div>
+
+						<?php
+						}
+						?>
+
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="username" placeholder="Enter username">
@@ -60,22 +148,45 @@ include('dbConnect.php');
 
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Email</span>
+
+						<?php
+
+						if (isset($er_mail)){
+
+						?>
+
+                    	<div><?= $er_mail ?></div>
+
+						<?php
+						}
+						?>
+
 						<input class="input100" type="email" name="email" placeholder="Enter email">
 						<span class="focus-input100"></span>
 					</div>
 
-					<!-- <div class="flex-sb-m w-full p-b-30">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
 
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+
+						<?php
+						if (isset($er_pass))
+						{
+						?>
+
+                    <div><?= $er_pass ?></div>
+						<?php
+						}
+						?>
+
+
+						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name="submit">
-							Login
+							Sign In
 						</button>
 					</div>
 				</form>

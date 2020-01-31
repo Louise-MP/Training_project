@@ -2,8 +2,52 @@
 
 session_start();
 
+include('dbConnect.php');
 
+if(!empty($_POST))
+{
+	extract($_POST);
+	$valid = true;
 
+	// On se place sur le bon formulaire grâce au "name" de la balise "input"
+	if (isset($_POST['submit']))
+	{
+		$username  = htmlspecialchars($_POST['username']); // On récupère le nom
+		$pass = md5($_POST['pass']); // On récupère le mot de passe 
+		
+		// On vérifie le mot de passe et le username
+		
+			if (!empty($username) AND !empty($pass))
+			{
+				$sql = "SELECT username, password FROM members WHERE username = '".$username."' AND  password = '".$pass."'"; // créer la requete 
+				$dbprepare = $connexion->prepare($sql);
+				$result = $dbprepare->execute(array($username));
+
+				$test = $dbprepare->fetch();
+				$check_username = $test['username'];
+				$check_password = $test['password'];
+				
+				if($username == $check_username && $pass == $check_password)
+				{
+						$_SESSION['username'] = $test['username'];
+						$_SESSION['email'] = $test['mail'];
+						$_SESSION['pass'] = $test['password'];
+
+						header('location: home_page.php');
+				}
+				else
+				{
+						echo "No match found.";
+				}	
+			}
+			else
+			{
+				echo 'Renseignez un Pseudo/Derbyname et un Mot De Passe.<br/>';
+			}
+		
+	}
+					
+}
 ?>
 
 
@@ -60,7 +104,7 @@ session_start();
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="flex-sb-m w-full p-b-30">
+					<!-- <div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 							<label class="label-checkbox100" for="ckb1">
@@ -73,7 +117,7 @@ session_start();
 								Forgot Password?
 							</a>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name="submit">

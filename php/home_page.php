@@ -1,5 +1,5 @@
 <?php
-session_start();
+ session_start();
 
 ?>
 
@@ -21,18 +21,17 @@ session_start();
 
     <div class="logo">Logo</div>
 
-    <div>
+  <div>
 
-    <?php 
-    
-        echo 'Hi' . $_SESSION['username'] . '!';
-
-    ?>
-
-    </div>
+  <?php
+  
+  echo 'Hi ' . $_SESSION['username'] . ' !';
+  
+  ?>
+  
+  </div>
 
     <a class="sign_out" href="sign_out.php">Sign out</a>
-
 </header>
     
 <!------------------------- MAIN SECTION -------------------------->
