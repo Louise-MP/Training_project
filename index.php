@@ -1,26 +1,9 @@
 <?php
 
-require_once('php/dbConnect.php');
+include('dbConnect.php');
 
-if (isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['pass']))
-{
-	$username = htmlspecialchars($_POST['username']);
-	$password = htmlspecialchars($_POST['pass']);
-	$passwordsecure = password_hash($password,PASSWORD_DEFAULT);
 
-	$sql = "INSERT INTO members(username,password) VALUES(?,?)";
-	$dbprepare=$connexion->prepare($sql);
-	$result=$dbprepare->execute([$username,$password]);
 
-	if ($result)
-	{
-		header('location: php/login.php');
-	}
-	else
-	{
-		echo 'Error';
-	}
-}
 
 
 ?>
@@ -75,12 +58,6 @@ if (isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['pass
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Enter password">
-						<span class="focus-input100"></span>
-					</div>
-
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Email</span>
 						<input class="input100" type="email" name="email" placeholder="Enter email">
@@ -95,12 +72,6 @@ if (isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['pass
 							</label>
 						</div>
 
-					     <div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div> 
-					</div> -->
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name="submit">

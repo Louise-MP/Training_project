@@ -3,39 +3,7 @@
 session_start();
 
 
-require_once('dbConnect.php');
 
-if (isset($_POST['submit']))
-{
-	$username = $_POST['username'];
-	$password = $_POST['pass'];
-
-	if ($username && $password)
-	{
-		$sql = "SELECT * FROM members WHERE username = ?";
-		$dbprepare=$connexion->prepare($sql);
-		$result=$dbprepare->execute(array($username));
-
-		header('location: home_page.php');
-	}	
-		/*$test =$dbprepare->fetch();
-
-		if (password_verify($password,$test['pass']))
-		{
-			$_SESSION['username']=$test['username'];
-			$_SESSION['pass']=$test['pass'];
-
-			header('location: home_page.php');
-
-		}*/
-	else
-	{
-		echo 'Error';
-		
-	}
-
-	
-}
 ?>
 
 
