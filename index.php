@@ -189,6 +189,9 @@ if(!empty($_POST))
 							Sign In
 						</button>
 					</div>
+						<br><br>
+						<a href="php/login.php">Do you have an account?</a>
+				
 				</form>
 			</div>
 		</div>

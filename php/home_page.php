@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,65 +14,69 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <title>Home page</title>
 </head>
+
 <body>
 
-<!----------------------------- MENU ---------------------------> 
+    <!----------------------------- MENU --------------------------->
 
-<header class="menu">
+    <header class="menu">
 
-    <div class="logo">Logo</div>
+        <div class="logo">Logo</div>
 
-  <div>
+        <div>
 
-  <?php
+            <?php
   
-  echo 'Hi ' . $_SESSION['username'] . ' !';
-  
-  ?>
-  
-  </div>
+            echo 'Hi ' . $_SESSION['username'] . ' !';
+            
+            ?>
 
-    <a class="sign_out" href="sign_out.php">Sign out</a>
-</header>
-    
-<!------------------------- MAIN SECTION -------------------------->
+        </div>
+        <nav>
+            <a href="../html/cv.html">Curriculum Vitae</a>
+        </nav>
 
-<section class="main_section">
+        <a class="sign_out" href="sign_out.php">Sign out</a>
+    </header>
 
-    <div class="welcome">
-        <h1>Welcome to the Projet 0 website !</h1>
-        <p>I created this site to train and show my skills.</p>
-        <p></p>
-    </div>
+    <!------------------------- MAIN SECTION -------------------------->
 
-</section>
+    <section class="main_section">
 
-<!-------------------------- SECTION 2 ---------------------------->
+        <div class="welcome">
+            <h1>Welcome to the Projet 0 website !</h1>
+            <p>I created this site to train and show my skills.</p>
+            <p></p>
+        </div>
 
-<section class="section2">
+    </section>
 
+    <!-------------------------- SECTION 2 ---------------------------->
 
-    <div class="logo_html">
-        <img src="../images/html.png" alt="logo html">
-    </div>
-
-    <div class="logo_css">
-        <img src="../images/css.png" alt="logo css">
-    </div>
-
-    <div class="logo_php">
-        <img src="../images/php.png" alt="logo php">
-    </div>
-
-    <div class="logo_mysql">
-        <img src="../images/mysql.png" alt="logo mysql">
-    </div>
+    <section class="section2">
 
 
-</section>
+        <div class="logo_html">
+            <img src="../images/html.png" alt="logo html">
+        </div>
+
+        <div class="logo_css">
+            <img src="../images/css.png" alt="logo css">
+        </div>
+
+        <div class="logo_php">
+            <img src="../images/php.png" alt="logo php">
+        </div>
+
+        <div class="logo_mysql">
+            <img src="../images/mysql.png" alt="logo mysql">
+        </div>
 
 
-<!-------------------------- FOOTER ---------------------------->
+    </section>
+
+
+    <!-------------------------- FOOTER ---------------------------->
 
     <!-- <h2 class="h2_footer">Interested by my profile? Please, contact me :</h2> 
 
@@ -79,9 +84,9 @@
 <footer class="footer"> -->
 
 
-<!-------------------------- CONTACT SECTION ---------------------------->
+    <!-------------------------- CONTACT SECTION ---------------------------->
 
-<!-- <section class="contact_section">
+    <!-- <section class="contact_section">
 
 <div class="phone_icon">
     <img src="../images/icons/phone.svg" alt="Phone icon">
@@ -105,5 +110,7 @@
 
 
 
+
 </body>
+
 </html>
